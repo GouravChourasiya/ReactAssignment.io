@@ -23,6 +23,7 @@ export const postSlice = createSlice({
 
 
         }
+        return null;
       })
     },
     updateLike:function(state,action){
@@ -31,6 +32,7 @@ export const postSlice = createSlice({
         if(item.id=== action.payload.id){
           item.Like=action.payload.Like;
         }
+        return null;
       })
     }
 
