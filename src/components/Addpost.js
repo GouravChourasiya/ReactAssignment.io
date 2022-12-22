@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { Card ,Text,Input, Spacer,Textarea,Button} from '@nextui-org/react';
 import {BiArrowBack} from "react-icons/bi"
 import { Scrollbars } from 'react-custom-scrollbars';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import {addpost} from '../Redux/reducer/postSlice'
 import { Link } from 'react-router-dom';
+import { v4 as uuid } from 'uuid';
 
 
 
@@ -13,10 +14,12 @@ import { Link } from 'react-router-dom';
 
 export const Addpost = () => {
   const dispatch = useDispatch()
-    const posts = useSelector((state) => state.items);
+  // creating unique id for post 
+  const unique_id=uuid();
+    // const posts = useSelector((state) => state.items);
 
   const [AddPost, setAddPost] = useState({
-    id:posts.length+1,
+    id:unique_id,
     title:"",
     category:"",
     description:"",

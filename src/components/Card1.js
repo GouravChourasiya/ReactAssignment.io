@@ -41,7 +41,7 @@ export const Card1 = () => {
  <Slider {...settings}>
 {/*   mapping data from redux store */}
    {posts.map(post=>
-   <div key={post.id} css={{ w:"100%", h:"500px"}} >
+   <div css={{ w:"100%", h:"500px"}} >
   <Card onPress={()=>navigate("/view/"+post.id)} isPressable={"true"} variant="flat" css={{ w:"90%", h:"200px",marginLeft:'20px'}}>
   
     <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>

@@ -12,10 +12,10 @@ export const UpdatePost = () => {
     let userId = useParams();
     const dispatch = useDispatch();
     // for getting data
-    const data = useSelector((state) => state.items.find(item=> item.id === parseInt(userId.id)));
+    const data = useSelector((state) => state.items.find(item=> item.id === userId.id));
 //  updating the data using usestate
     const [UpdatePost, setUpdatePost] = useState({
-        id:parseInt(userId.id),
+        id:userId.id,
         title:data.title,
         category:data.category,
         description:data.description,

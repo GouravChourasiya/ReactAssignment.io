@@ -10,7 +10,7 @@ export const ViewBlog = () => {
     // Using Useparams  Function to get  the ID 
     let userId = useParams();
     // Using UseSelector to get the state data from REdux Store
-    const data = useSelector((state) => state.items.find(item=> item.id === parseInt(userId.id)));
+    const data = useSelector((state) => state.items.find(item=> item.id === userId.id));
 
 //    Dispatch function to dispatch the data to redux store
     const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export const ViewBlog = () => {
     var userlike = data.Like;
     // Using use state to passing the data to the reducers
     const [updatelike]= useState({
-        id:parseInt(userId.id),
+        id:userId.id,
         Like:userlike+1
     })
 // Redirect to home function to navigate to the home
@@ -46,12 +46,12 @@ export const ViewBlog = () => {
 
         {/*  Delete Button*/}
         <Button  shadow auto color={'error'}
-          onClick={()=> dispatch(deletepost(parseInt(userId.id)))} 
+          onClick={()=> dispatch(deletepost(userId.id))} 
           onPress={()=>RedirectToHome()}>Delete </Button>
           {/* Delete buttons End here */}
            <Spacer x={1}/>
            {/* Update Button to update passing with id */}
-        <Link to={'/update/'+parseInt(userId.id)}><Button  shadow auto color={'secondary'}
+        <Link to={'/update/'+userId.id}><Button  shadow auto color={'secondary'}
            >Update </Button></Link>
            {/* Update buttons ENd here */}
         <Spacer x={1}/>
